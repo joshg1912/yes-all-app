@@ -6,7 +6,8 @@ end
 
 def create 
     workout = Workout.new(
-        number:integer
+        number: params[:number]
+    
     )
     workout.save
     render json: workout.as_json
@@ -23,7 +24,7 @@ def update
 
 end
 
-def destroy
+def delete
     workout = Workout.find_by(id: params[:id])
     workout.destroy
     render json: {message: "workout deleted"}
